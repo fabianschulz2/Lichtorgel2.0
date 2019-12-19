@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fabia\\source\\repos\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj": {}
+    "C:\\Users\\fabia\\source\\repos\\fabianschulz2\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fabia\\source\\repos\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj": {
+    "C:\\Users\\fabia\\source\\repos\\fabianschulz2\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fabia\\source\\repos\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj",
+        "projectUniqueName": "C:\\Users\\fabia\\source\\repos\\fabianschulz2\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj",
         "projectName": "Lichtorgel2.0",
-        "projectPath": "C:\\Users\\fabia\\source\\repos\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj",
+        "projectPath": "C:\\Users\\fabia\\source\\repos\\fabianschulz2\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj",
         "packagesPath": "C:\\Users\\fabia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fabia\\source\\repos\\Lichtorgel2.0\\Lichtorgel2.0\\obj\\",
+        "outputPath": "C:\\Users\\fabia\\source\\repos\\fabianschulz2\\Lichtorgel2.0\\Lichtorgel2.0\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -44,6 +44,18 @@
             "NAudio": {
               "target": "Package",
               "version": "[1.9.0, )"
+            },
+            "Tmds.LibC": {
+              "target": "Package",
+              "version": "[0.3.0, )"
+            },
+            "Unosquare.Raspberry.IO": {
+              "target": "Package",
+              "version": "[0.27.0, )"
+            },
+            "Unosquare.WiringPi": {
+              "target": "Package",
+              "version": "[0.5.0, )"
             }
           },
           "imports": [
