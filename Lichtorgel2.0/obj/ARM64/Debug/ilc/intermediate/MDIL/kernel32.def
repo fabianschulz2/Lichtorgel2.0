@@ -1,0 +1,68 @@
+LIBRARY kernel32.dll
+EXPORTS
+   GetConsoleMode
+   GetCPInfoExW
+   GetCurrentProcess
+   FindClose
+   GetFileType
+   GetComputerNameW
+   FormatMessageW
+   LocalAlloc
+   GetConsoleScreenBufferInfo
+
+   GetConsoleOutputCP
+   FillConsoleOutputCharacterW
+   SetConsoleCursorInfo
+   CloseHandle
+   FreeLibrary
+
+
+   WriteConsoleW
+
+   MultiByteToWideChar
+   WriteFile
+
+   SetThreadErrorMode
+   GetProcessId
+   GetStdHandle
+
+   SetConsoleCursorPosition
+
+   GetProcAddress
+   DuplicateHandle
+   K32EnumProcesses
+   CheckTokenMembershipEx
+   GetCurrentThread
+
+   WideCharToMultiByte
+
+   OpenProcess
+   CreateDirectoryW
+   FillConsoleOutputAttribute
+   ReadConsoleInputW
+   LocalFree
+   SetFileCompletionNotificationModes
+   GetConsoleCP
+
+   CreatePipe
+
+   GetFileAttributesExW
+
+   GetExitCodeProcess
+
+   ReadConsoleW
+
+
+
+   SetConsoleTextAttribute
+   TerminateProcess
+
+
+   FindFirstFileExW
+
+   CreateProcessW
+   SetConsoleOutputCP
+
+
+   ReadFile
+   GetConsoleCursorInfo

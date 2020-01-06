@@ -1,0 +1,13 @@
+﻿"C:\Users\valsj\Source\Repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM64\Debug\ilc\in\Lichtorgel2.0.exe"
+"C:\Users\valsj\Source\Repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM64\Debug\ilc\in\NAudio.dll"
+"C:\Users\valsj\Source\Repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM64\Debug\ilc\in\Swan.dll"
+"C:\Users\valsj\Source\Repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM64\Debug\ilc\in\Swan.Lite.dll"
+"C:\Users\valsj\Source\Repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM64\Debug\ilc\in\Unosquare.Raspberry.Abstractions.dll"
+"C:\Users\valsj\Source\Repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM64\Debug\ilc\in\Unosquare.RaspberryIO.dll"
+"C:\Users\valsj\Source\Repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM64\Debug\ilc\in\Unosquare.WiringPi.dll"
+/Lib:"C:\Users\valsj\Source\Repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM64\Debug\ilc\in"
+/Lib:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm64.microsoft.net.native.compiler\2.2.7-rel-27913-00\tools\ARM64\ilc\lib\Private"
+/WinMD:"C:\Users\valsj\Source\Repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM64\Debug\ilc\in\WinMetadata\Windows.winmd"
+/VSTelemetrySessionSettings:"{"IsOptedIn":true,"HostName":"Dev14","AppInsightsInstrumentationKey":"f144292e-e3b2-4011-ac90-20e5c03fbce5","AsimovInstrumentationKey":"AIF-312cbd79-9dbb-4c48-a7da-3cc2a931cb70","AppId":1001,"UserId":"75cb9497-6631-4b1a-99e6-0296f06d06fb","Id":"ce6625e2-9895-4eb9-adb2-13a957e0d225","ProcessStartTime":637135602899544839}"
+/RdXmlPath:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\2.2.7-rel-27913-00\tools\LibraryXML"
+/RunOnlyPreDR

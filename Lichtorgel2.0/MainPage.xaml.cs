@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using NAudio;
 using Unosquare.RaspberryIO;
 using Unosquare.WiringPi;
+using Windows.Media.Audio;
 
 // Die Elementvorlage "Leere Seite" wird unter https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x407 dokumentiert.
 
@@ -34,7 +35,8 @@ namespace Lichtorgel2._0
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // NAudio.Wave.WaveFileReader wave = new NAudio.Wave.WaveFileReader("test.wav");
-            Pi.Init<BootstrapWiringPi>();    //doku : https://unosquare.github.io/raspberryio/
+            //    Pi.Init<BootstrapWiringPi>();    //doku : https://unosquare.github.io/raspberryio/ 
+            Pi.Init<BootstrapWiringPi>();
             var blinkingPin = Pi.Gpio[0];
             blinkingPin = Pi.Gpio[bcmPin:0];
 
@@ -50,6 +52,15 @@ namespace Lichtorgel2._0
 
 
             
+        }
+
+        private void SelectAndPlay_OnClick(object sender, RoutedEventArgs e)
+        {
+            Audio audio = new Audio();
+            audio.Start();
+            AudioDeviceOutputNode _deviceOutputNode = audio.GetOutputNode();
+            GPIOControll lichtsteuerung = new GPIOControll();
+            lichtsteuerung.SetAudio(_deviceOutputNode);
         }
     }
 }

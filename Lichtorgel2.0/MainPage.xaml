@@ -9,7 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button Content="Play" Margin="810,407,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Content="Play" Margin="0,313,0,0" VerticalAlignment="Top" Click="Button_Click" HorizontalAlignment="Center"/>
+        <Button x:Name="SelectAndPlay" Content="Musik und Mikrofon" Margin="711,560,0,0" VerticalAlignment="Top" Click="SelectAndPlay_OnClick"/>
 
     </Grid>
 </Page>

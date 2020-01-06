@@ -9,7 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button x:ConnectionId='2' Content="Play" Margin="810,407,0,0" VerticalAlignment="Top"                     />
+        <Button x:ConnectionId='2' Content="Play" Margin="0,313,0,0" VerticalAlignment="Top"                      HorizontalAlignment="Center"/>
+        <Button x:ConnectionId='3' x:Name="SelectAndPlay" Content="Musik und Mikrofon" Margin="711,560,0,0" VerticalAlignment="Top"                              />
 
     </Grid>
 </Page>

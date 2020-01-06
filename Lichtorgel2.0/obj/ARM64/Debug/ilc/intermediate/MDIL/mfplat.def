@@ -1,0 +1,11 @@
+LIBRARY mfplat.dll
+EXPORTS
+   MFCreateAttributes
+   MFCreateMemoryBuffer
+   MFCreateSample
+   MFShutdown
+   MFInitMediaTypeFromWaveFormatEx
+   MFCreateWaveFormatExFromMFMediaType
+   MFStartup
+   MFCreateMFByteStreamOnStreamEx
+   MFCreateMediaType
