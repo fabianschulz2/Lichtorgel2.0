@@ -32,9 +32,9 @@ namespace Lichtorgel2._0
 
             _graph.Start();
         }
-        public AudioDeviceOutputNode GetOutputNode()
+        public AudioGraph GetAudioGraph()
         {
-            return _deviceOutputNode;
+            return _graph;
         }
 
         /// <summary>

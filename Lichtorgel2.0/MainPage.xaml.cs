@@ -58,9 +58,9 @@ namespace Lichtorgel2._0
         {
             Audio audio = new Audio();
             audio.Start();
-            AudioDeviceOutputNode _deviceOutputNode = audio.GetOutputNode();
+            AudioGraph _graph = audio.GetAudioGraph();
             GPIOControll lichtsteuerung = new GPIOControll();
-            lichtsteuerung.SetAudio(_deviceOutputNode);
+            lichtsteuerung.SetAudio(_graph);
         }
     }
 }

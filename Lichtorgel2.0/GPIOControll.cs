@@ -42,10 +42,11 @@ namespace Lichtorgel2._0
             //   textBox.Text = green.Read().ToString() + " " + yellow.Read().ToString() + " " + red.Read().ToString();
         }
 
-        public void SetAudio(AudioDeviceOutputNode _deviceOutputNode)
+        public void SetAudio(AudioGraph _graph)
         {
-            //    AudioFrameOutputNode afon = new AudioFrameOutputNode(_deviceOutputNode);
-            //    EqualizerEffectDefinition eed = new EqualizerEffectDefinition(_deviceOutputNode);
+          //  EqualizerEffectDefinition eed = new EqualizerEffectDefinition(_graph);
+         //   IReadOnlyList<EqualizerBand> list = eed.Bands;
+          //  Console.WriteLine(list.Count);
         }
     }
 }
