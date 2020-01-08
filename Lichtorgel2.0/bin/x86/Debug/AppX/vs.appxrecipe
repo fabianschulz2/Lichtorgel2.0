@@ -30,13 +30,25 @@
     <AppXManifest Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-01-07T11:44:17.854</Modified>
+      <Modified>2020-01-08T19:05:33.670</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Lichtorgel2.0.exe">
       <PackagePath>entrypoint\Lichtorgel2.0.exe</PackagePath>
-      <Modified>2020-01-07T11:44:17.276</Modified>
+      <Modified>2020-01-08T19:05:32.978</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\accord\3.8.0\lib\netstandard2.0\Accord.dll">
+      <PackagePath>Accord.dll</PackagePath>
+      <Modified>2017-10-18T22:59:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\accord.math\3.8.0\lib\netstandard2.0\Accord.Math.Core.dll">
+      <PackagePath>Accord.Math.Core.dll</PackagePath>
+      <Modified>2017-10-18T22:59:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\accord.math\3.8.0\lib\netstandard2.0\Accord.Math.dll">
+      <PackagePath>Accord.Math.dll</PackagePath>
+      <Modified>2017-10-18T22:59:00.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\naudio\1.9.0\lib\uap10.0.10240\NAudio.dll">
       <PackagePath>NAudio.dll</PackagePath>
@@ -45,34 +57,6 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.9\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
       <Modified>2019-07-22T13:01:14.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\system.runtime.compilerservices.unsafe\4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
-      <PackagePath>System.Runtime.CompilerServices.Unsafe.dll</PackagePath>
-      <Modified>2019-09-13T00:28:42.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\system.text.encoding.codepages\4.6.0\runtimes\win\lib\netstandard2.0\System.Text.Encoding.CodePages.dll">
-      <PackagePath>System.Text.Encoding.CodePages.dll</PackagePath>
-      <Modified>2019-09-13T00:39:24.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\unosquare.raspberry.abstractions\0.4.0\lib\netstandard2.0\Unosquare.Raspberry.Abstractions.dll">
-      <PackagePath>Unosquare.Raspberry.Abstractions.dll</PackagePath>
-      <Modified>2019-08-15T17:58:38.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\unosquare.raspberry.io\0.27.0\lib\netstandard2.0\Unosquare.RaspberryIO.dll">
-      <PackagePath>Unosquare.RaspberryIO.dll</PackagePath>
-      <Modified>2019-09-30T12:56:18.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\unosquare.swan\2.3.1\lib\netstandard2.0\Swan.dll">
-      <PackagePath>Swan.dll</PackagePath>
-      <Modified>2019-09-26T14:11:22.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\unosquare.swan.lite\2.3.0\lib\netstandard2.0\Swan.Lite.dll">
-      <PackagePath>Swan.Lite.dll</PackagePath>
-      <Modified>2019-09-24T17:37:52.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\unosquare.wiringpi\0.5.0\lib\netstandard2.0\Unosquare.WiringPi.dll">
-      <PackagePath>Unosquare.WiringPi.dll</PackagePath>
-      <Modified>2019-08-21T20:33:18.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.17763.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
@@ -124,17 +108,21 @@
       <PackagePath>Assets\test.wav</PackagePath>
       <Modified>2020-01-02T11:22:44.507</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\accord\3.8.0\build\Accord.dll.config">
+      <PackagePath>Accord.dll.config</PackagePath>
+      <Modified>2017-10-18T22:59:06.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Lichtorgel2.0.xr.xml">
       <PackagePath>Lichtorgel2.0.xr.xml</PackagePath>
-      <Modified>2020-01-07T11:40:42.369</Modified>
+      <Modified>2020-01-08T18:19:48.249</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-01-07T11:44:17.104</Modified>
+      <Modified>2020-01-08T19:05:32.761</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-01-07T11:44:17.104</Modified>
+      <Modified>2020-01-08T19:05:32.761</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17763.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -142,11 +130,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-01-07T11:40:43.228</Modified>
+      <Modified>2020-01-08T18:19:49.284</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Core\Lichtorgel2.0.exe">
       <PackagePath>Lichtorgel2.0.exe</PackagePath>
-      <Modified>2020-01-07T11:44:17.839</Modified>
+      <Modified>2020-01-08T19:05:33.663</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

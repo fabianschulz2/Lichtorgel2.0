@@ -15,19 +15,21 @@ namespace Lichtorgel2._0
 {
     class GPIOControll
     {
+        GpioPin green;
+        GpioPin yellow;
+        GpioPin red;
         public void Init()
         {
             var controller = GpioController.GetDefault();
             if (controller != null)
             {
                 Console.WriteLine(controller.PinCount);
-                //  textBox.Text = controller.PinCount.ToString();
             }
 
             //GpioPin an die richtigen Pins Koppeln
-            GpioPin green = controller.OpenPin(17);
-            GpioPin yellow = controller.OpenPin(27);
-            GpioPin red = controller.OpenPin(22);
+            green = controller.OpenPin(17);
+            yellow = controller.OpenPin(27);
+            red = controller.OpenPin(22);
 
             //GpioPin Funktion festlegen
             green.SetDriveMode(GpioPinDriveMode.Output);
@@ -35,18 +37,44 @@ namespace Lichtorgel2._0
             red.SetDriveMode(GpioPinDriveMode.Output);
 
             // alle an
-            green.Write(GpioPinValue.High);
-            yellow.Write(GpioPinValue.High);
-            red.Write(GpioPinValue.High);
+            //green.Write(GpioPinValue.High);
+            //yellow.Write(GpioPinValue.High);
+            // red.Write(GpioPinValue.High);
 
-            //   textBox.Text = green.Read().ToString() + " " + yellow.Read().ToString() + " " + red.Read().ToString();
         }
 
-        public void SetAudio(AudioGraph _graph)
+        public void SetGreen(Boolean on)
         {
-          //  EqualizerEffectDefinition eed = new EqualizerEffectDefinition(_graph);
-         //   IReadOnlyList<EqualizerBand> list = eed.Bands;
-          //  Console.WriteLine(list.Count);
+            if (on)
+            {
+                green.Write(GpioPinValue.High);
+            }
+            else
+            {
+                green.Write(GpioPinValue.Low);
+            }
+        }
+        public void SetYellow(Boolean on)
+        {
+            if (on)
+            {
+                yellow.Write(GpioPinValue.High);
+            }
+            else
+            {
+                yellow.Write(GpioPinValue.Low);
+            }
+        }
+        public void SetRed(Boolean on)
+        {
+            if (on)
+            {
+                red.Write(GpioPinValue.High);
+            }
+            else
+            {
+                red.Write(GpioPinValue.Low);
+            }
         }
     }
 }

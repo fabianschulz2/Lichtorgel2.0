@@ -9,37 +9,54 @@ using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Media.Audio;
 using Windows.Media.Capture;
+using Windows.Media;
+using Windows.UI.Xaml;
+using Windows.Media.Render;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using Accord.Math;
+using Windows.UI.Xaml.Controls.Primitives;
+
 
 namespace Lichtorgel2._0
 {
+
+    //siehe: https://docs.microsoft.com/de-de/windows/uwp/audio-video-camera/audio-graphs
+
+    [ComImport]
+    [Guid("5B0D3235-4DBA-4D44-865E-8F1D0E4FD04D")]
+    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    unsafe interface IMemoryBufferByteAccess
+    {
+        void GetBuffer(out byte* buffer, out uint capacity);
+    }
+
     class Audio
     {
-        AudioFileInputNode _fileInputNode;
-        AudioDeviceInputNode _deviceInputNode;
-        AudioGraph _graph;
-        AudioDeviceOutputNode _deviceOutputNode;
+        AudioGraph audioGraph;
+        AudioFileInputNode audioFileInputNode;
+        AudioDeviceInputNode audioDeviceInputNode;
+        AudioDeviceOutputNode audioDeviceOutputNode;
+        AudioFrameOutputNode audioFrameOutputNode;
+        GPIOControll gPIOControll;
 
-        public async void Start()
+
+
+        public async void Start(String audioFileName)
         {
             await CreateGraph();
             await CreateDefaultDeviceOutputNode();
             await CreateDefaultDeviceInputNode();
-            await CreateFileInputNode();
-
-            AddReverb();
+            await CreateFileInputNode(audioFileName);
+            CreateGPIOControll();
+            CreateFrameOutputNode();
 
             ConnectNodes();
 
-            _graph.Start();
-        }
-        public AudioGraph GetAudioGraph()
-        {
-            return _graph;
+            audioGraph.Start();
         }
 
-        /// <summary>
-        /// Create an audio graph that can contain nodes
-        /// </summary>       
+        // AudioGraph generieren   
         private async Task CreateGraph()
         {
             // Specify settings for graph, the AudioRenderCategory helps to optimize audio processing
@@ -52,65 +69,60 @@ namespace Lichtorgel2._0
                 throw new Exception(result.Status.ToString());
             }
 
-            _graph = result.Graph;
+            audioGraph = result.Graph;
         }
 
-        /// <summary>
-        /// Create a node to output audio data to the default audio device (e.g. soundcard)
-        /// </summary>
+        // output zum default Ausgabegerät
         private async Task CreateDefaultDeviceOutputNode()
         {
-            CreateAudioDeviceOutputNodeResult result = await _graph.CreateDeviceOutputNodeAsync();
+            CreateAudioDeviceOutputNodeResult result = await audioGraph.CreateDeviceOutputNodeAsync();
 
             if (result.Status != AudioDeviceNodeCreationStatus.Success)
             {
                 throw new Exception(result.Status.ToString());
             }
 
-            _deviceOutputNode = result.DeviceOutputNode;
+            audioDeviceOutputNode = result.DeviceOutputNode;
         }
 
-        // Mikrofon hinzufuegen
+        // Input vom default Mikrofon
         private async Task CreateDefaultDeviceInputNode()
         {
-            CreateAudioDeviceInputNodeResult result = await _graph.CreateDeviceInputNodeAsync(MediaCategory.Media);
+            CreateAudioDeviceInputNodeResult result = await audioGraph.CreateDeviceInputNodeAsync(MediaCategory.Media);
 
             if (result.Status != AudioDeviceNodeCreationStatus.Success)
             {
                 throw new Exception(result.Status.ToString());
             }
 
-            _deviceInputNode = result.DeviceInputNode;
+            audioDeviceInputNode = result.DeviceInputNode;
         }
 
-        /// <summary>
-        /// Ask user to pick a file and use the chosen file to create an AudioFileInputNode
-        /// </summary>
-        private async Task CreateFileInputNode()
+        // Input von ausgewaehlter Datei
+        private async Task CreateFileInputNode(String song)
         {
-            FileOpenPicker filePicker = new FileOpenPicker
-            {
-                SuggestedStartLocation = PickerLocationId.MusicLibrary,
-                FileTypeFilter = { ".mp3", ".wav" }
-            };
+            StorageFile file = null;
 
-            StorageFile file = await filePicker.PickSingleFileAsync();
+            /*   if (song.Equals(""))
+               {
+                   FileOpenPicker filePicker = new FileOpenPicker
+                   {
+                       SuggestedStartLocation = PickerLocationId.MusicLibrary,
+                       FileTypeFilter = { ".mp3", ".wav" }
+                   };
+                   file = await filePicker.PickSingleFileAsync();
 
-            if (file != null)
-            {
-                // Application now has read/write access to the picked file
+               } 
+               */
 
-            }
-            else
-            {
-                StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-                Folder = await Folder.GetFolderAsync("Assets");
-                file = await Folder.GetFileAsync("test.mp3");
-            }
 
-            // file null check code omitted
+            //Standartdatei auswählen (bei Windows IoT)
+            StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            Folder = await Folder.GetFolderAsync("Assets");
+            Debug.WriteLine(song);
+            file = await Folder.GetFileAsync(song);
 
-            CreateAudioFileInputNodeResult result = await _graph.CreateFileInputNodeAsync(file);
+            CreateAudioFileInputNodeResult result = await audioGraph.CreateFileInputNodeAsync(file);
 
             if (result.Status != AudioFileNodeCreationStatus.Success)
             {
@@ -118,29 +130,77 @@ namespace Lichtorgel2._0
             }
 
 
-            _fileInputNode = result.FileInputNode;
+            audioFileInputNode = result.FileInputNode;
         }
 
-        /// <summary>
-        /// Create an instance of the pre-supplied reverb effect and add it to the output node
-        /// </summary>
-        private void AddReverb()
-        {
-            ReverbEffectDefinition reverbEffect = new ReverbEffectDefinition(_graph)
-            {
-                DecayTime = 1
-            };
-
-            _deviceOutputNode.EffectDefinitions.Add(reverbEffect);
-        }
-
-        /// <summary>
-        /// Connect all the nodes together to form the graph, in this case we only have 2 nodes
-        /// </summary>
+        // Nodes Zusammenfuegen
         private void ConnectNodes()
         {
-            _fileInputNode.AddOutgoingConnection(_deviceOutputNode);
-            _deviceInputNode.AddOutgoingConnection(_deviceOutputNode);
+            audioFileInputNode.AddOutgoingConnection(audioDeviceOutputNode);
+            audioDeviceInputNode.AddOutgoingConnection(audioDeviceOutputNode);
+
+            audioFileInputNode.AddOutgoingConnection(audioFrameOutputNode);
+            audioDeviceInputNode.AddOutgoingConnection(audioFrameOutputNode);
+        }
+
+        // GPIOControll erstellen und initialisieren
+        private void CreateGPIOControll()
+        {
+            gPIOControll = new GPIOControll();
+            gPIOControll.Init();
+        }
+
+
+        unsafe private void ProcessFrameOutput(AudioFrame frame)
+        {
+            using (AudioBuffer buffer = frame.LockBuffer(AudioBufferAccessMode.Write))
+            using (IMemoryBufferReference reference = buffer.CreateReference())
+            {
+                byte* dataInBytes;
+                uint capacityInBytes;
+                float* dataInFloat;
+
+                // Get the buffer from the AudioFrame
+                ((IMemoryBufferByteAccess)reference).GetBuffer(out dataInBytes, out capacityInBytes);
+
+                dataInFloat = (float*)dataInBytes;
+
+                gPIOControll.SetGreen(dataInFloat[1] < 0.0);
+
+
+            }
+        }
+        public void CreateFrameOutputNode()
+        {
+            audioFrameOutputNode = audioGraph.CreateFrameOutputNode();
+            audioGraph.QuantumStarted += AudioGraph_QuantumStarted;
+        }
+
+        private void AudioGraph_QuantumStarted(AudioGraph sender, object args)
+        {
+            AudioFrame frame = audioFrameOutputNode.GetFrame();
+            ProcessFrameOutput(frame);
+        }
+
+        public double[] FFT(double[] data)
+
+        {
+
+            double[] fft = new double[data.Length];
+
+            System.Numerics.Complex[] fftComplex = new System.Numerics.Complex[data.Length];
+
+            for (int i = 0; i < data.Length; i++)
+
+                fftComplex[i] = new System.Numerics.Complex(data[i], 0.0);
+
+            FourierTransform.FFT(fftComplex, FourierTransform.Direction.Forward);
+
+            for (int i = 0; i < data.Length; i++)
+
+                fft[i] = fftComplex[i].Magnitude;
+
+            return fft;
 
         }
 

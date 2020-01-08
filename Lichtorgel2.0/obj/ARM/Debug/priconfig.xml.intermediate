@@ -64,9 +64,9 @@
     <indexer-config type="RESFILES" qualifierDelimiter="." />
     <indexer-config type="EMBEDFILES" />
   </index>
-  <index root="\" startIndexAt="obj\ARM\Debug\resources.en-us.resfiles">
+  <index root="\" startIndexAt="obj\ARM\Debug\resources.en.resfiles">
     <default>
-      <qualifier name="Language" value="en-us" />
+      <qualifier name="Language" value="en" />
       <qualifier name="Contrast" value="standard" />
       <qualifier name="Scale" value="200" />
       <qualifier name="HomeRegion" value="001" />

@@ -66,13 +66,6 @@ C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Core\L
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Lichtorgel2.0.build.appxrecipe
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\NAudio.dll
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\System.Runtime.dll
-C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\System.Text.Encoding.CodePages.dll
-C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Unosquare.Raspberry.Abstractions.dll
-C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Unosquare.RaspberryIO.dll
-C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Swan.dll
-C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Swan.Lite.dll
-C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Unosquare.WiringPi.dll
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Microsoft.UI.Xaml.Markup.winmd
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\Lichtorgel2.0.csprojAssemblyReference.cache
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\App.g.i.cs
@@ -90,7 +83,6 @@ C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\NAudio
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\Lichtorgel2.0.exe
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\Lichtorgel2.0.pdb
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\ResourceHandlingTask.state
-C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\FxResources.System.Text.Encoding.CodePages.SR.resw
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\priconfig.xml
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\priconfig.xml.intermediate
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\unfiltered.layout.resfiles
@@ -106,7 +98,12 @@ C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\pri.re
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\qualifiers.txt
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
-C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\resources.en-us.resfiles
-C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\resources.en-us.resfiles.intermediate
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636758516200000000.json
+C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Accord.dll.config
+C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Accord.dll
+C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Accord.Math.Core.dll
+C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Accord.Math.dll
+C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\Accord\en\Accord.Properties.Resources.resw
+C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\resources.en.resfiles
+C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\resources.en.resfiles.intermediate

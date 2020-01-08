@@ -2,20 +2,15 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using NAudio;
-using Unosquare.RaspberryIO;
-using Unosquare.WiringPi;
 using Windows.Media.Audio;
+using System.Diagnostics;
+using Windows.UI.Popups;
 
 // Die Elementvorlage "Leere Seite" wird unter https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x407 dokumentiert.
 
@@ -26,41 +21,34 @@ namespace Lichtorgel2._0
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        
+
+        List<String> Mp3List = new List<String>();
         public MainPage()
         {
             this.InitializeComponent();
+
+            //Liste fuer Combobox erstellen
+            Mp3List.Add("test.mp3");
+            Mp3List.Add("test.wav");
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void ButtonPlay_OnClick(object sender, RoutedEventArgs e)
         {
-            // NAudio.Wave.WaveFileReader wave = new NAudio.Wave.WaveFileReader("test.wav");
-            //    Pi.Init<BootstrapWiringPi>();    //doku : https://unosquare.github.io/raspberryio/ 
-            Pi.Init<BootstrapWiringPi>();
-            var blinkingPin = Pi.Gpio[0];
-            blinkingPin = Pi.Gpio[bcmPin:0];
-
-            blinkingPin.PinMode = Unosquare.RaspberryIO.Abstractions.GpioPinDriveMode.Output;
-            bool ison = false;
-            for(int i = 0; i < 20; i++)
+            if(songSelect.SelectedItem == null)
             {
-                ison = !ison;
-                blinkingPin.Write(ison);
-                System.Threading.Thread.Sleep(500);
+                MessageDialog dialog = new MessageDialog("Bitte wähle eine Audiodatei aus");
+                await dialog.ShowAsync();
+
             }
-            
-
+            else {
+                Audio audio = new Audio();
+                Debug.WriteLine(songSelect.SelectedItem.ToString());
+                audio.Start(songSelect.SelectedItem.ToString());
+            }
 
             
         }
 
-        private void SelectAndPlay_OnClick(object sender, RoutedEventArgs e)
-        {
-            Audio audio = new Audio();
-            audio.Start();
-            AudioGraph _graph = audio.GetAudioGraph();
-            GPIOControll lichtsteuerung = new GPIOControll();
-            lichtsteuerung.SetAudio(_graph);
-        }
     }
 }
