@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-01-08T19:05:33.670</Modified>
+      <Modified>2020-01-09T09:08:42.140</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Lichtorgel2.0.exe">
       <PackagePath>entrypoint\Lichtorgel2.0.exe</PackagePath>
-      <Modified>2020-01-08T19:05:32.978</Modified>
+      <Modified>2020-01-09T09:08:41.342</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\accord\3.8.0\lib\netstandard2.0\Accord.dll">
       <PackagePath>Accord.dll</PackagePath>
@@ -49,10 +49,6 @@
     <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\accord.math\3.8.0\lib\netstandard2.0\Accord.Math.dll">
       <PackagePath>Accord.Math.dll</PackagePath>
       <Modified>2017-10-18T22:59:00.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\naudio\1.9.0\lib\uap10.0.10240\NAudio.dll">
-      <PackagePath>NAudio.dll</PackagePath>
-      <Modified>2019-05-04T07:55:14.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.9\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -114,15 +110,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Lichtorgel2.0.xr.xml">
       <PackagePath>Lichtorgel2.0.xr.xml</PackagePath>
-      <Modified>2020-01-08T18:19:48.249</Modified>
+      <Modified>2020-01-09T09:08:41.087</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-01-08T19:05:32.761</Modified>
+      <Modified>2020-01-09T09:08:41.109</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-01-08T19:05:32.761</Modified>
+      <Modified>2020-01-09T09:08:41.109</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17763.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -130,11 +126,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-01-08T18:19:49.284</Modified>
+      <Modified>2020-01-09T07:45:37.539</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Core\Lichtorgel2.0.exe">
       <PackagePath>Lichtorgel2.0.exe</PackagePath>
-      <Modified>2020-01-08T19:05:33.663</Modified>
+      <Modified>2020-01-09T09:08:42.130</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

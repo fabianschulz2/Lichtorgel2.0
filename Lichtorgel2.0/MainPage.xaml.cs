@@ -21,8 +21,9 @@ namespace Lichtorgel2._0
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
-        List<String> Mp3List = new List<String>();
+        private Audio audio;
+        
+        public List<String> Mp3List = new List<String>();
         public MainPage()
         {
             this.InitializeComponent();
@@ -30,25 +31,30 @@ namespace Lichtorgel2._0
             //Liste fuer Combobox erstellen
             Mp3List.Add("test.mp3");
             Mp3List.Add("test.wav");
+            audio = new Audio();
+            audio.Start(toggleFile.IsOn, toggleMic.IsOn, "");
 
         }
 
-        private async void ButtonPlay_OnClick(object sender, RoutedEventArgs e)
+
+        private void ToggleMic_Toggle(object sender, RoutedEventArgs e)
         {
-            if(songSelect.SelectedItem == null)
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            if (toggleSwitch != null)
             {
-                MessageDialog dialog = new MessageDialog("Bitte wähle eine Audiodatei aus");
-                await dialog.ShowAsync();
-
+                if(audio != null)
+                audio.MicState(toggleSwitch.IsOn);
             }
-            else {
-                Audio audio = new Audio();
-                Debug.WriteLine(songSelect.SelectedItem.ToString());
-                audio.Start(songSelect.SelectedItem.ToString());
-            }
-
-            
         }
-
+        private void ToggleFile_Toggle(object sender, RoutedEventArgs e)
+        {
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            if (toggleSwitch != null)
+            {
+                if(audio != null)
+                
+                audio.FileState(toggleSwitch.IsOn, songSelect.SelectedIndex.ToString());
+            }
+        }
     }
 }

@@ -64,7 +64,6 @@ C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\AppxMa
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Core\AppxManifest.xml
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Core\Lichtorgel2.0.exe
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Lichtorgel2.0.build.appxrecipe
-C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\NAudio.dll
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\System.Runtime.dll
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Microsoft.UI.Xaml.Markup.winmd
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\Lichtorgel2.0.csprojAssemblyReference.cache
@@ -79,7 +78,6 @@ C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\App.xb
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\MainPage.xbf
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\XamlSaveStateFile.xml
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\Lichtorgel2.0.csproj.CopyComplete
-C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\NAudio.pri.xml
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\Lichtorgel2.0.exe
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\Lichtorgel2.0.pdb
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\ResourceHandlingTask.state

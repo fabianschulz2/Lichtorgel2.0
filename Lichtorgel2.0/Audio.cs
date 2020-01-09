@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Media.Audio;
@@ -15,8 +14,7 @@ using Windows.Media.Render;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using Accord.Math;
-using Windows.UI.Xaml.Controls.Primitives;
-
+using Windows.UI.Popups;
 
 namespace Lichtorgel2._0
 {
@@ -40,21 +38,18 @@ namespace Lichtorgel2._0
         AudioFrameOutputNode audioFrameOutputNode;
         GPIOControll gPIOControll;
 
-
-
-        public async void Start(String audioFileName)
+        public async void Start(bool filePlay, bool micOn, String audioFileName)
         {
             await CreateGraph();
             await CreateDefaultDeviceOutputNode();
-            await CreateDefaultDeviceInputNode();
-            await CreateFileInputNode(audioFileName);
+            FileState(filePlay, audioFileName);  // erstellt FileInputNode
+            MicState(micOn);  // erstellt DeviceInputNode
             CreateGPIOControll();
             CreateFrameOutputNode();
-
             ConnectNodes();
-
             audioGraph.Start();
         }
+
 
         // AudioGraph generieren   
         private async Task CreateGraph()
@@ -99,7 +94,7 @@ namespace Lichtorgel2._0
         }
 
         // Input von ausgewaehlter Datei
-        private async Task CreateFileInputNode(String song)
+        private async Task CreateFileInputNode(String fileName)
         {
             StorageFile file = null;
 
@@ -119,8 +114,7 @@ namespace Lichtorgel2._0
             //Standartdatei auswählen (bei Windows IoT)
             StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
             Folder = await Folder.GetFolderAsync("Assets");
-            Debug.WriteLine(song);
-            file = await Folder.GetFileAsync(song);
+            file = await Folder.GetFileAsync(fileName);
 
             CreateAudioFileInputNodeResult result = await audioGraph.CreateFileInputNodeAsync(file);
 
@@ -180,6 +174,42 @@ namespace Lichtorgel2._0
         {
             AudioFrame frame = audioFrameOutputNode.GetFrame();
             ProcessFrameOutput(frame);
+        }
+        public async void MicState(bool micOn)
+        {
+            if (micOn)
+            {
+                await CreateDefaultDeviceInputNode();
+            }
+            else
+            {
+                if (audioDeviceInputNode != null)
+                {
+                    audioDeviceInputNode.Stop();
+                }
+            }
+        }
+        public async void FileState(bool filePlay, String fileName)
+        {
+            if (filePlay)
+            {
+                if (fileName == null)
+                {
+                    MessageDialog dialog = new MessageDialog("Bitte wähle eine Audiodatei aus");
+                    await dialog.ShowAsync();
+                }
+                else
+                {
+                    await CreateFileInputNode(fileName);
+                }
+            }
+            else
+            {
+                if (audioFileInputNode != null)
+                {
+                    audioFileInputNode.Stop();
+                }
+            }
         }
 
         public double[] FFT(double[] data)
