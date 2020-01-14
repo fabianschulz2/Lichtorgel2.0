@@ -141,7 +141,7 @@ namespace Lichtorgel2._0
         private void CreateGPIOControll()
         {
             gPIOControll = new GPIOControll();
-            gPIOControll.Init();
+           // gPIOControll.Init();
         }
 
 
@@ -150,22 +150,45 @@ namespace Lichtorgel2._0
             using (AudioBuffer buffer = frame.LockBuffer(AudioBufferAccessMode.Write))
             using (IMemoryBufferReference reference = buffer.CreateReference())
             {
+                int count = 0;
                 byte* dataInBytes;
                 uint capacityInBytes;
                 float* dataInFloat;
-
+                double[] dataInDouble= new Double[(int)audioGraph.EncodingProperties.SampleRate];
                 // Get the buffer from the AudioFrame
                 ((IMemoryBufferByteAccess)reference).GetBuffer(out dataInBytes, out capacityInBytes);
 
                 dataInFloat = (float*)dataInBytes;
-
-                gPIOControll.SetGreen(dataInFloat[1] < 0.0);
+                dataInDouble[count] = (double) *dataInFloat;
+                count++;
+                if (count < (int)audioGraph.EncodingProperties.SampleRate)
+                {
+                    setLight(FFT(dataInDouble));
+                    count = 0;
+                }
+                
+                gPIOControll.SetGreen(dataInFloat [1] < 0.0);
 
 
             }
         }
+
+        public void setLight(double[] fft)
+        {
+            double avg=0;
+            for(int i=0; i < fft.Length; i++)
+            {
+                avg += fft[i]; 
+            }
+            avg /= fft.Length;
+            gPIOControll.SetGreen(avg < 200);
+            gPIOControll.SetYellow(avg > 200 && avg < 5000);
+            gPIOControll.SetRed(avg > 5000);
+
+        }
         public void CreateFrameOutputNode()
         {
+            int sampleRate = (int)audioGraph.EncodingProperties.SampleRate;
             audioFrameOutputNode = audioGraph.CreateFrameOutputNode();
             audioGraph.QuantumStarted += AudioGraph_QuantumStarted;
         }
@@ -173,6 +196,7 @@ namespace Lichtorgel2._0
         private void AudioGraph_QuantumStarted(AudioGraph sender, object args)
         {
             AudioFrame frame = audioFrameOutputNode.GetFrame();
+
             ProcessFrameOutput(frame);
         }
         public async void MicState(bool micOn)
