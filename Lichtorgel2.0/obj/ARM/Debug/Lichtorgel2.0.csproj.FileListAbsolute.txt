@@ -110,7 +110,6 @@ C:\Users\valsj\Source\Repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\De
 C:\Users\valsj\Source\Repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\resources.en-us.resfiles.intermediate
 C:\Users\valsj\Source\Repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\ProjectArchitectures.txt
 C:\Users\valsj\Source\Repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636758516200000000.json
-C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\Lichtorgel2.0.csprojAssemblyReference.cache
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\App.g.i.cs
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\App.g.cs
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\MainPage.g.i.cs
@@ -161,3 +160,4 @@ C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Accord
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\Accord\en\Accord.Properties.Resources.resw
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\resources.en.resfiles
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\resources.en.resfiles.intermediate
+C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\Lichtorgel2.0.csprojAssemblyReference.cache

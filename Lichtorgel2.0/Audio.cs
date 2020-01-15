@@ -31,21 +31,24 @@ namespace Lichtorgel2._0
 
     class Audio
     {
-        AudioGraph audioGraph;
-        AudioFileInputNode audioFileInputNode;
-        AudioDeviceInputNode audioDeviceInputNode;
-        AudioDeviceOutputNode audioDeviceOutputNode;
-        AudioFrameOutputNode audioFrameOutputNode;
+        AudioGraph audioGraph = null;
+        AudioFileInputNode audioFileInputNode = null;
+        AudioDeviceInputNode audioDeviceInputNode = null;
+        AudioDeviceOutputNode audioDeviceOutputNode = null;
+        AudioFrameOutputNode audioFrameOutputNode = null;
         GPIOControll gPIOControll;
+        String lastFileName;
 
-        public async void Start(bool filePlay, bool micOn, String audioFileName)
+        public async void Start(bool filePlay, bool micOn, String fileName)
         {
+            lastFileName = "test.mp3";
             await CreateGraph();
-            await CreateDefaultDeviceOutputNode();
-            FileState(filePlay, audioFileName);  // erstellt FileInputNode
-            MicState(micOn);  // erstellt DeviceInputNode
+            await CreateAudioDeviceOutputNode();
+            await CreateAudioDeviceInputNode();
+            await CreateAudioFileInputNode(fileName);
+            CreateAudioFrameOutputNode();
             CreateGPIOControll();
-            CreateFrameOutputNode();
+
             ConnectNodes();
             audioGraph.Start();
         }
@@ -68,7 +71,7 @@ namespace Lichtorgel2._0
         }
 
         // output zum default Ausgabegerät
-        private async Task CreateDefaultDeviceOutputNode()
+        private async Task CreateAudioDeviceOutputNode()
         {
             CreateAudioDeviceOutputNodeResult result = await audioGraph.CreateDeviceOutputNodeAsync();
 
@@ -81,7 +84,7 @@ namespace Lichtorgel2._0
         }
 
         // Input vom default Mikrofon
-        private async Task CreateDefaultDeviceInputNode()
+        private async Task CreateAudioDeviceInputNode()
         {
             CreateAudioDeviceInputNodeResult result = await audioGraph.CreateDeviceInputNodeAsync(MediaCategory.Media);
 
@@ -94,9 +97,9 @@ namespace Lichtorgel2._0
         }
 
         // Input von ausgewaehlter Datei
-        private async Task CreateFileInputNode(String fileName)
+        private async Task CreateAudioFileInputNode(String fileName)
         {
-            StorageFile file = null;
+
 
             /*   if (song.Equals(""))
                {
@@ -112,9 +115,18 @@ namespace Lichtorgel2._0
 
 
             //Standartdatei auswählen (bei Windows IoT)
+            StorageFile file;
             StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
             Folder = await Folder.GetFolderAsync("Assets");
-            file = await Folder.GetFileAsync(fileName);
+            if (fileName.Equals("")) //bei der Initialisierung
+            {
+                file = await Folder.GetFileAsync(lastFileName);
+            }
+            else
+            {
+                file = await Folder.GetFileAsync(fileName);
+            }
+
 
             CreateAudioFileInputNodeResult result = await audioGraph.CreateFileInputNodeAsync(file);
 
@@ -125,23 +137,32 @@ namespace Lichtorgel2._0
 
 
             audioFileInputNode = result.FileInputNode;
+            if (fileName.Equals("")) //bei der Initialisierung
+            {
+                audioFileInputNode.ConsumeInput = false;
+            }
         }
 
         // Nodes Zusammenfuegen
         private void ConnectNodes()
         {
-            audioFileInputNode.AddOutgoingConnection(audioDeviceOutputNode);
-            audioDeviceInputNode.AddOutgoingConnection(audioDeviceOutputNode);
-
-            audioFileInputNode.AddOutgoingConnection(audioFrameOutputNode);
-            audioDeviceInputNode.AddOutgoingConnection(audioFrameOutputNode);
+            if (audioFileInputNode != null)
+            {
+                audioFileInputNode.AddOutgoingConnection(audioDeviceOutputNode);
+                audioFileInputNode.AddOutgoingConnection(audioFrameOutputNode);
+            }
+            if (audioDeviceInputNode != null)
+            {
+                audioDeviceInputNode.AddOutgoingConnection(audioDeviceOutputNode);
+                audioDeviceInputNode.AddOutgoingConnection(audioFrameOutputNode);
+            }
         }
 
         // GPIOControll erstellen und initialisieren
         private void CreateGPIOControll()
         {
             gPIOControll = new GPIOControll();
-           // gPIOControll.Init();
+            gPIOControll.Init();
         }
 
 
@@ -150,35 +171,35 @@ namespace Lichtorgel2._0
             using (AudioBuffer buffer = frame.LockBuffer(AudioBufferAccessMode.Write))
             using (IMemoryBufferReference reference = buffer.CreateReference())
             {
-                int count = 0;
+                  int count = 0;
                 byte* dataInBytes;
                 uint capacityInBytes;
                 float* dataInFloat;
-                double[] dataInDouble= new Double[(int)audioGraph.EncodingProperties.SampleRate];
+                 double[] dataInDouble = new Double[(int)audioGraph.EncodingProperties.SampleRate];
                 // Get the buffer from the AudioFrame
                 ((IMemoryBufferByteAccess)reference).GetBuffer(out dataInBytes, out capacityInBytes);
 
                 dataInFloat = (float*)dataInBytes;
-                dataInDouble[count] = (double) *dataInFloat;
+                 dataInDouble[count] = (double)*dataInFloat;
                 count++;
-                if (count < (int)audioGraph.EncodingProperties.SampleRate)
+                    if (count < (int)audioGraph.EncodingProperties.SampleRate)
                 {
-                    setLight(FFT(dataInDouble));
-                    count = 0;
+                           SetLight(FFT(dataInDouble));
+                           count = 0;
                 }
-                
-                gPIOControll.SetGreen(dataInFloat [1] < 0.0);
+
+                 //   gPIOControll.SetGreen(dataInFloat[1] < 0.0);
 
 
             }
         }
 
-        public void setLight(double[] fft)
+        public void SetLight(double[] fft)
         {
-            double avg=0;
-            for(int i=0; i < fft.Length; i++)
+            double avg = 0;
+            for (int i = 0; i < fft.Length; i++)
             {
-                avg += fft[i]; 
+                avg += fft[i];
             }
             avg /= fft.Length;
             gPIOControll.SetGreen(avg < 200);
@@ -186,7 +207,7 @@ namespace Lichtorgel2._0
             gPIOControll.SetRed(avg > 5000);
 
         }
-        public void CreateFrameOutputNode()
+        public void CreateAudioFrameOutputNode()
         {
             int sampleRate = (int)audioGraph.EncodingProperties.SampleRate;
             audioFrameOutputNode = audioGraph.CreateFrameOutputNode();
@@ -196,43 +217,44 @@ namespace Lichtorgel2._0
         private void AudioGraph_QuantumStarted(AudioGraph sender, object args)
         {
             AudioFrame frame = audioFrameOutputNode.GetFrame();
-
             ProcessFrameOutput(frame);
         }
-        public async void MicState(bool micOn)
+        public void MicState(bool micOn)
         {
+            //unmute
             if (micOn)
             {
-                await CreateDefaultDeviceInputNode();
+                audioDeviceInputNode.ConsumeInput = true; 
             }
+            //Mikrofon mute
             else
             {
-                if (audioDeviceInputNode != null)
-                {
-                    audioDeviceInputNode.Stop();
-                }
+                audioDeviceInputNode.ConsumeInput = false; 
             }
         }
+
         public async void FileState(bool filePlay, String fileName)
         {
+            //wiedergabe fortsetzen, wenn sich der Dateiname aendert, wird ein neuer FileInputNode erstellt.
             if (filePlay)
             {
-                if (fileName == null)
+                if (!fileName.Equals(lastFileName))
                 {
-                    MessageDialog dialog = new MessageDialog("Bitte wähle eine Audiodatei aus");
-                    await dialog.ShowAsync();
+                    audioFileInputNode.RemoveOutgoingConnection(audioDeviceOutputNode);
+                    audioFileInputNode.RemoveOutgoingConnection(audioFrameOutputNode);
+                    await CreateAudioFileInputNode(fileName);
+                    audioFileInputNode.AddOutgoingConnection(audioDeviceOutputNode);
+                    audioFileInputNode.AddOutgoingConnection(audioFrameOutputNode);
+                    lastFileName = fileName; 
                 }
-                else
-                {
-                    await CreateFileInputNode(fileName);
-                }
+
+                audioFileInputNode.ConsumeInput = true;
+
             }
+            //wiedergabe pausieren
             else
             {
-                if (audioFileInputNode != null)
-                {
-                    audioFileInputNode.Stop();
-                }
+                audioFileInputNode.ConsumeInput = false;
             }
         }
 

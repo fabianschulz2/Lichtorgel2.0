@@ -46,14 +46,25 @@ namespace Lichtorgel2._0
                 audio.MicState(toggleSwitch.IsOn);
             }
         }
-        private void ToggleFile_Toggle(object sender, RoutedEventArgs e)
+        private async void ToggleFile_Toggle(object sender, RoutedEventArgs e)
         {
             ToggleSwitch toggleSwitch = sender as ToggleSwitch;
             if (toggleSwitch != null)
             {
                 if(audio != null)
+                {
+                    if (songSelect.SelectedIndex == -1)
+                    {
+                        toggleSwitch.IsOn = false;
+                        MessageDialog dialog = new MessageDialog("Bitte wähle eine Audiodatei aus");
+                        await dialog.ShowAsync();
+                    }
+                    else { 
+                    audio.FileState(toggleSwitch.IsOn, songSelect.SelectedItem.ToString());
+                    }
+                }
                 
-                audio.FileState(toggleSwitch.IsOn, songSelect.SelectedIndex.ToString());
+              
             }
         }
     }
