@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Windows.Foundation;
-using Windows.Storage;
-using Windows.Storage.Pickers;
+using Windows.Media;
 using Windows.Media.Audio;
 using Windows.Media.Capture;
-using Windows.Media;
-using Windows.UI.Xaml;
-using Windows.Media.Render;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using Accord.Math;
-using Windows.UI.Popups;
+using Windows.Storage;
 
 namespace Lichtorgel2._0
 {
@@ -31,25 +22,26 @@ namespace Lichtorgel2._0
 
     class Audio
     {
-        AudioGraph audioGraph = null;
-        AudioFileInputNode audioFileInputNode = null;
-        AudioDeviceInputNode audioDeviceInputNode = null;
-        AudioDeviceOutputNode audioDeviceOutputNode = null;
-        AudioFrameOutputNode audioFrameOutputNode = null;
-        GPIOControll gPIOControll;
+        AudioGraph audioGraph;
+        AudioFileInputNode audioFileInputNode;
+        AudioDeviceInputNode audioDeviceInputNode;
+        AudioDeviceOutputNode audioDeviceOutputNode;
+        AudioFrameOutputNode audioFrameOutputNode;
+        GPIOControl gPIOControl;
         String lastFileName;
+        FFT fft;
 
-        public async void Start(bool filePlay, bool micOn, String fileName)
+        public async void Start()
         {
             lastFileName = "test.mp3";
             await CreateGraph();
             await CreateAudioDeviceOutputNode();
             await CreateAudioDeviceInputNode();
-            await CreateAudioFileInputNode(fileName);
+            await CreateAudioFileInputNode("");
             CreateAudioFrameOutputNode();
-            CreateGPIOControll();
-
             ConnectNodes();
+            CreateGPIOControll();
+            fft = new FFT();
             audioGraph.Start();
         }
 
@@ -99,21 +91,6 @@ namespace Lichtorgel2._0
         // Input von ausgewaehlter Datei
         private async Task CreateAudioFileInputNode(String fileName)
         {
-
-
-            /*   if (song.Equals(""))
-               {
-                   FileOpenPicker filePicker = new FileOpenPicker
-                   {
-                       SuggestedStartLocation = PickerLocationId.MusicLibrary,
-                       FileTypeFilter = { ".mp3", ".wav" }
-                   };
-                   file = await filePicker.PickSingleFileAsync();
-
-               } 
-               */
-
-
             //Standartdatei auswählen (bei Windows IoT)
             StorageFile file;
             StorageFolder Folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
@@ -126,7 +103,6 @@ namespace Lichtorgel2._0
             {
                 file = await Folder.GetFileAsync(fileName);
             }
-
 
             CreateAudioFileInputNodeResult result = await audioGraph.CreateFileInputNodeAsync(file);
 
@@ -158,11 +134,12 @@ namespace Lichtorgel2._0
             }
         }
 
-        // GPIOControll erstellen und initialisieren
+        // GPIOControl erstellen und initialisieren
         private void CreateGPIOControll()
         {
-            gPIOControll = new GPIOControll();
-            gPIOControll.Init();
+            //gPIOControl = new GPIOControl();      //zum verwenden mit RaspberryPi
+            gPIOControl = new GPIOControlVirtual(); //zum verwenden ohne RaspberryPi
+            gPIOControl.Init();
         }
 
 
@@ -171,26 +148,23 @@ namespace Lichtorgel2._0
             using (AudioBuffer buffer = frame.LockBuffer(AudioBufferAccessMode.Write))
             using (IMemoryBufferReference reference = buffer.CreateReference())
             {
-                  int count = 0;
+                int count = 0;
                 byte* dataInBytes;
                 uint capacityInBytes;
                 float* dataInFloat;
-                 double[] dataInDouble = new Double[(int)audioGraph.EncodingProperties.SampleRate];
+                double[] dataInDouble = new Double[(int)audioGraph.EncodingProperties.SampleRate];
                 // Get the buffer from the AudioFrame
                 ((IMemoryBufferByteAccess)reference).GetBuffer(out dataInBytes, out capacityInBytes);
 
                 dataInFloat = (float*)dataInBytes;
-                 dataInDouble[count] = (double)*dataInFloat;
+                dataInDouble[count] = (double)*dataInFloat;
                 count++;
-                    if (count < (int)audioGraph.EncodingProperties.SampleRate)
+                if (count < (int)audioGraph.EncodingProperties.SampleRate)
                 {
-                           SetLight(FFT(dataInDouble));
-                           count = 0;
+                    SetLight(fft.Run(dataInDouble));
+                    count = 0;
                 }
-
-                 //   gPIOControll.SetGreen(dataInFloat[1] < 0.0);
-
-
+                //   gPIOControll.SetGreen(dataInFloat[1] < 0.0);
             }
         }
 
@@ -202,11 +176,11 @@ namespace Lichtorgel2._0
                 avg += fft[i];
             }
             avg /= fft.Length;
-            gPIOControll.SetGreen(avg < 200);
-            gPIOControll.SetYellow(avg > 200 && avg < 5000);
-            gPIOControll.SetRed(avg > 5000);
-
+            gPIOControl.SetGreen(avg < 200);
+            gPIOControl.SetYellow(avg > 200 && avg < 5000);
+            gPIOControl.SetRed(avg > 5000);
         }
+
         public void CreateAudioFrameOutputNode()
         {
             int sampleRate = (int)audioGraph.EncodingProperties.SampleRate;
@@ -224,12 +198,12 @@ namespace Lichtorgel2._0
             //unmute
             if (micOn)
             {
-                audioDeviceInputNode.ConsumeInput = true; 
+                audioDeviceInputNode.ConsumeInput = true;
             }
             //Mikrofon mute
             else
             {
-                audioDeviceInputNode.ConsumeInput = false; 
+                audioDeviceInputNode.ConsumeInput = false;
             }
         }
 
@@ -245,11 +219,9 @@ namespace Lichtorgel2._0
                     await CreateAudioFileInputNode(fileName);
                     audioFileInputNode.AddOutgoingConnection(audioDeviceOutputNode);
                     audioFileInputNode.AddOutgoingConnection(audioFrameOutputNode);
-                    lastFileName = fileName; 
+                    lastFileName = fileName;
                 }
-
                 audioFileInputNode.ConsumeInput = true;
-
             }
             //wiedergabe pausieren
             else
@@ -257,29 +229,5 @@ namespace Lichtorgel2._0
                 audioFileInputNode.ConsumeInput = false;
             }
         }
-
-        public double[] FFT(double[] data)
-
-        {
-
-            double[] fft = new double[data.Length];
-
-            System.Numerics.Complex[] fftComplex = new System.Numerics.Complex[data.Length];
-
-            for (int i = 0; i < data.Length; i++)
-
-                fftComplex[i] = new System.Numerics.Complex(data[i], 0.0);
-
-            FourierTransform.FFT(fftComplex, FourierTransform.Direction.Forward);
-
-            for (int i = 0; i < data.Length; i++)
-
-                fft[i] = fftComplex[i].Magnitude;
-
-            return fft;
-
-        }
-
-
     }
 }

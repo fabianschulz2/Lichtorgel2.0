@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>FABI-LENOVO</Machine>
-    <WindowsUser>fabia</WindowsUser>
+    <Machine>SMIPC</Machine>
+    <WindowsUser>valsj</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>9d268c0b-140e-4abb-81cb-4bc1df250a82</PackageIdentityName>
     <PackageIdentityPublisher>CN=fabia</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>279E3940AB48223DB359993C437CABD7139124FF7679BB6F6504684E679BFCA0</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>BD557570507255DC0C41FDC117BD00C4DB21406D0677CBA9FEF45DC0630F7327</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>9d268c0b-140e-4abb-81cb-4bc1df250a82_1.0.0.0_x86__keze8efxejarg</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>9d268c0b-140e-4abb-81cb-4bc1df250a82_keze8efxejarg!App</RegisteredUserModeAppID>
     <RegisteredPackageID>9d268c0b-140e-4abb-81cb-4bc1df250a82</RegisteredPackageID>
@@ -27,26 +27,26 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-01-14T09:52:59.149</Modified>
+      <Modified>2020-01-16T14:53:12.102</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Lichtorgel2.0.exe">
+    <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Lichtorgel2.0.exe">
       <PackagePath>entrypoint\Lichtorgel2.0.exe</PackagePath>
-      <Modified>2020-01-14T09:52:58.624</Modified>
+      <Modified>2020-01-16T14:53:11.160</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\.nuget\packages\accord\3.8.0\lib\netstandard2.0\Accord.dll">
+    <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\accord\3.8.0\lib\netstandard2.0\Accord.dll">
       <PackagePath>Accord.dll</PackagePath>
       <Modified>2017-10-18T22:59:06.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\.nuget\packages\accord.math\3.8.0\lib\netstandard2.0\Accord.Math.Core.dll">
+    <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\accord.math\3.8.0\lib\netstandard2.0\Accord.Math.Core.dll">
       <PackagePath>Accord.Math.Core.dll</PackagePath>
       <Modified>2017-10-18T22:59:00.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\.nuget\packages\accord.math\3.8.0\lib\netstandard2.0\Accord.Math.dll">
+    <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\accord.math\3.8.0\lib\netstandard2.0\Accord.Math.dll">
       <PackagePath>Accord.Math.dll</PackagePath>
       <Modified>2017-10-18T22:59:00.000</Modified>
     </AppxPackagedFile>
@@ -58,79 +58,79 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2018-10-23T00:33:40.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\Assets\test.mp3">
+    <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\Assets\test.mp3">
       <PackagePath>Assets\test.mp3</PackagePath>
-      <Modified>2020-01-07T12:24:03.142</Modified>
+      <Modified>2020-01-06T16:25:31.169</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2019-12-17T14:13:42.233</Modified>
+      <Modified>2020-01-02T11:22:43.766</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2019-11-15T07:01:01.512</Modified>
+      <Modified>2020-01-02T11:22:43.758</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-15T07:01:01.512</Modified>
+      <Modified>2020-01-02T11:22:43.759</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-15T07:01:01.512</Modified>
+      <Modified>2020-01-02T11:22:43.760</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-15T07:01:01.512</Modified>
+      <Modified>2020-01-02T11:22:43.760</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-15T07:01:01.512</Modified>
+      <Modified>2020-01-02T11:22:43.761</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-15T07:01:01.512</Modified>
+      <Modified>2020-01-02T11:22:43.761</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-15T07:01:01.512</Modified>
+      <Modified>2020-01-02T11:22:43.762</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\Assets\test.wav">
+    <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\Assets\test.wav">
       <PackagePath>Assets\test.wav</PackagePath>
-      <Modified>2020-01-07T12:24:03.581</Modified>
+      <Modified>2020-01-02T11:22:44.507</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\.nuget\packages\accord\3.8.0\build\Accord.dll.config">
+    <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\accord\3.8.0\build\Accord.dll.config">
       <PackagePath>Accord.dll.config</PackagePath>
       <Modified>2017-10-18T22:59:06.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Lichtorgel2.0.xr.xml">
+    <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Lichtorgel2.0.xr.xml">
       <PackagePath>Lichtorgel2.0.xr.xml</PackagePath>
-      <Modified>2020-01-10T07:04:00.289</Modified>
+      <Modified>2020-01-09T09:08:41.087</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-01-14T09:52:58.391</Modified>
+      <Modified>2020-01-16T14:53:10.923</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-01-14T09:52:58.392</Modified>
+      <Modified>2020-01-16T14:53:10.923</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17763.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2018-10-22T23:44:28.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-01-14T09:48:32.714</Modified>
+      <Modified>2020-01-16T14:37:08.393</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Core\Lichtorgel2.0.exe">
+    <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\x86\Debug\Core\Lichtorgel2.0.exe">
       <PackagePath>Lichtorgel2.0.exe</PackagePath>
-      <Modified>2020-01-14T09:52:59.126</Modified>
+      <Modified>2020-01-16T14:53:12.088</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

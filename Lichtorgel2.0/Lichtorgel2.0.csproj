@@ -123,7 +123,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Audio.cs" />
-    <Compile Include="GPIOControll.cs" />
+    <Compile Include="FFT.cs" />
+    <Compile Include="GPIOControl.cs" />
+    <Compile Include="GPIOControlVirtual.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

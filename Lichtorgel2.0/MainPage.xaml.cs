@@ -32,7 +32,7 @@ namespace Lichtorgel2._0
             Mp3List.Add("test.mp3");
             Mp3List.Add("test.wav");
             audio = new Audio();
-            audio.Start(toggleFile.IsOn, toggleMic.IsOn, "");
+            audio.Start();
 
         }
 

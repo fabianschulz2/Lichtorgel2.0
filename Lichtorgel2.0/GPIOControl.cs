@@ -13,12 +13,12 @@ using Windows.Media.Capture;
 
 namespace Lichtorgel2._0
 {
-    class GPIOControll
+    class GPIOControl
     {
         GpioPin green;
         GpioPin yellow;
         GpioPin red;
-        public void Init()
+        public virtual void Init()
         {
             var controller = GpioController.GetDefault();
             if (controller != null)
@@ -36,14 +36,9 @@ namespace Lichtorgel2._0
             yellow.SetDriveMode(GpioPinDriveMode.Output);
             red.SetDriveMode(GpioPinDriveMode.Output);
 
-            // alle an
-            //green.Write(GpioPinValue.High);
-            //yellow.Write(GpioPinValue.High);
-            // red.Write(GpioPinValue.High);
-
         }
 
-        public void SetGreen(Boolean on)
+        public virtual void SetGreen(Boolean on)
         {
             if (on)
             {
@@ -54,7 +49,7 @@ namespace Lichtorgel2._0
                 green.Write(GpioPinValue.Low);
             }
         }
-        public void SetYellow(Boolean on)
+        public virtual void SetYellow(Boolean on)
         {
             if (on)
             {
@@ -65,7 +60,7 @@ namespace Lichtorgel2._0
                 yellow.Write(GpioPinValue.Low);
             }
         }
-        public void SetRed(Boolean on)
+        public virtual void SetRed(Boolean on)
         {
             if (on)
             {
