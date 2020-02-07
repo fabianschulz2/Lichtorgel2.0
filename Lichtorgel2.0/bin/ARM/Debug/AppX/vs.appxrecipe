@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-01-16T14:59:08.424</Modified>
+      <Modified>2020-02-07T15:25:41.102</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Lichtorgel2.0.exe">
       <PackagePath>entrypoint\Lichtorgel2.0.exe</PackagePath>
-      <Modified>2020-01-16T14:59:07.516</Modified>
+      <Modified>2020-02-07T15:25:40.649</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\.nuget\packages\accord\3.8.0\lib\netstandard2.0\Accord.dll">
       <PackagePath>Accord.dll</PackagePath>
@@ -110,15 +110,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Lichtorgel2.0.xr.xml">
       <PackagePath>Lichtorgel2.0.xr.xml</PackagePath>
-      <Modified>2020-01-15T16:57:39.712</Modified>
+      <Modified>2020-02-07T15:03:13.758</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-01-16T14:59:07.326</Modified>
+      <Modified>2020-02-07T15:25:40.462</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-01-16T14:59:07.327</Modified>
+      <Modified>2020-02-07T15:25:40.462</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17763.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -130,7 +130,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Core\Lichtorgel2.0.exe">
       <PackagePath>Lichtorgel2.0.exe</PackagePath>
-      <Modified>2020-01-16T14:59:08.418</Modified>
+      <Modified>2020-02-07T15:25:41.102</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

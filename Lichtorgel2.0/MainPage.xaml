@@ -10,8 +10,8 @@
     <Grid x:Name="mainGrid">
         <ComboBox x:FieldModifier="public" x:Name="songSelect" Header="Wähle eine Audiodatei" ItemsSource="{x:Bind Mp3List}" Margin="98,357,0,0" Width="484" FontSize="24"/>
         <TextBlock x:Name="Header" Margin="0,0,0,0" Text="Lichtorgel" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72" HorizontalAlignment="Center"/>
-        <ToggleSwitch x:Name="toggleMic" Header="Mikrofon" Toggled="ToggleMic_Toggle" IsOn="False" FontSize="24" HorizontalAlignment="Center"/>
-        <ToggleSwitch x:Name="toggleFile" Header="Datei" Toggled="ToggleFile_Toggle" IsOn="False" Margin="0,234,0,0" VerticalAlignment="Top" FontSize="24" HorizontalAlignment="Center"/>
+        <ToggleSwitch x:Name="toggleMic" Header="Mikrofon" Toggled="ToggleMic_Toggle" IsOn="False" FontSize="24" Margin="625,500,0,0" VerticalAlignment="Top"/>
+        <ToggleSwitch x:Name="toggleFile" Header="Datei" Toggled="ToggleFile_Toggle" IsOn="False" Margin="625,363,0,0" VerticalAlignment="Top" FontSize="24"/>
 
     </Grid>
 </Page>

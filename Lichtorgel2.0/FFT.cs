@@ -1,4 +1,5 @@
 ﻿using Accord.Math;
+using Accord.Math.Transforms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace Lichtorgel2._0
 
                 fftComplex[i] = new System.Numerics.Complex(data[i], 0.0);
 
-            FourierTransform.FFT(fftComplex, FourierTransform.Direction.Forward);
+            FourierTransform2.FFT(fftComplex, FourierTransform.Direction.Forward);
 
             for (int i = 0; i < data.Length; i++)
 
