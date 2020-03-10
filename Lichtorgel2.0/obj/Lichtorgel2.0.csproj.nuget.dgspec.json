@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\valsj\\Documents\\GitHub\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj": {}
+    "C:\\Users\\valsj\\Desktop\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj": {}
   },
   "projects": {
-    "C:\\Users\\valsj\\Documents\\GitHub\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj": {
+    "C:\\Users\\valsj\\Desktop\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\valsj\\Documents\\GitHub\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj",
+        "projectUniqueName": "C:\\Users\\valsj\\Desktop\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj",
         "projectName": "Lichtorgel2.0",
-        "projectPath": "C:\\Users\\valsj\\Documents\\GitHub\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj",
+        "projectPath": "C:\\Users\\valsj\\Desktop\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj",
         "packagesPath": "C:\\Users\\valsj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\valsj\\Documents\\GitHub\\Lichtorgel2.0\\Lichtorgel2.0\\obj\\",
+        "outputPath": "C:\\Users\\valsj\\Desktop\\Lichtorgel2.0\\Lichtorgel2.0\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [

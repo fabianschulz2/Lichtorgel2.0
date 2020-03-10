@@ -12,6 +12,7 @@
         <TextBlock x:Name="Header" Margin="0,0,0,0" Text="Lichtorgel" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="72" HorizontalAlignment="Center"/>
         <ToggleSwitch x:Name="toggleMic" Header="Mikrofon" Toggled="ToggleMic_Toggle" IsOn="False" FontSize="24" Margin="625,500,0,0" VerticalAlignment="Top"/>
         <ToggleSwitch x:Name="toggleFile" Header="Datei" Toggled="ToggleFile_Toggle" IsOn="False" Margin="625,363,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Ellipse x:Name="ellipseRed" HorizontalAlignment="Left" Height="100" Margin="1019,357,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 </Page>

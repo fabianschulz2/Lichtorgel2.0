@@ -31,6 +31,7 @@ namespace Lichtorgel2._0
         GPIOControl gPIOControl;
         String lastFileName;
         FFT fft;
+        int k = 20;
 
         public async void Start()
         {
@@ -139,8 +140,8 @@ namespace Lichtorgel2._0
         // GPIOControl erstellen und initialisieren
         private void CreateGPIOControll()
         {
-            //gPIOControl = new GPIOControl();      //zum verwenden mit RaspberryPi
-            gPIOControl = new GPIOControlVirtual(); //zum verwenden ohne RaspberryPi
+            gPIOControl = new GPIOControl();      //zum verwenden mit RaspberryPi
+           // gPIOControl = new GPIOControlVirtual(); //zum verwenden ohne RaspberryPi
             gPIOControl.Init();
         }
 
@@ -152,7 +153,6 @@ namespace Lichtorgel2._0
             //IMemoryBufferReference aus buffer holen
             using (IMemoryBufferReference reference = buffer.CreateReference())
             {
-                int count = 0;
                 byte* dataInBytes;
                 uint capacityInBytes;
                 float* dataInFloat;
@@ -162,44 +162,66 @@ namespace Lichtorgel2._0
 
                 dataInFloat = (float*)dataInBytes;
                 Debug.WriteLine(buffer.Length);
-
                 float lows = 0;
                 float mids = 0;
                 float hights = 0;
-                for (uint i = 0; i < (buffer.Length / 4) / 3; i += 100)
+                if (k ==20)
                 {
-                    lows += dataInFloat[i];
-                }
-                for (uint i = (buffer.Length / 4) / 3; i < (buffer.Length / 4) * (2 / 3); i += 100)
-                {
-                    mids += dataInFloat[i];
-                }
-                for (uint i = (buffer.Length / 4) * (2 / 3); i < (buffer.Length / 4); i += 100)
-                {
-                    hights += dataInFloat[i];
-                }
+                    
 
-                if (lows > mids && lows > hights)
-                {
-                    gPIOControl.SetRed(false);
-                    gPIOControl.SetYellow(false);
-                    gPIOControl.SetGreen(true);
-
-                }
-                else
-                {
-                    if (mids > hights)
+                    uint arrSize = buffer.Length/4;
+                    for (uint i = 0; i < arrSize / 3; i += 20)
+                    {
+                        lows += dataInFloat[i] + 1f;
+                        Debug.Write(dataInFloat[i] + " ");
+                    }
+                    Debug.WriteLine("");
+                    for (uint i = arrSize / 3; i < (arrSize * 2) / 3; i += 20)
+                    {
+                        mids += dataInFloat[i] + 1f;
+                        Debug.Write(dataInFloat[i] + " ");
+                    }
+                    Debug.WriteLine("");
+                    for (uint i = (arrSize * 2) / 3; i < arrSize; i += 20)
+                    {
+                        hights += dataInFloat[i] + 1f;
+                        Debug.Write(dataInFloat[i] + " ");
+                    }
+                    Debug.WriteLine("");
+                    Debug.WriteLine("");
+                    //for (int j = 0; j < arrSize; j++)
+                    //{
+                    //    Debug.Write(dataInFloat[j] + " ");
+                    //}
+                    //Debug.WriteLine("");
+                    if (lows > mids && lows > hights)
                     {
                         gPIOControl.SetRed(false);
-                        gPIOControl.SetYellow(true);
-                        gPIOControl.SetGreen(false);
+                        gPIOControl.SetYellow(false);
+                        gPIOControl.SetGreen(true);
+
                     }
                     else
                     {
-                        gPIOControl.SetRed(true);
-                        gPIOControl.SetYellow(false);
-                        gPIOControl.SetGreen(false);
+                        if (mids > hights)
+                        {
+                            gPIOControl.SetRed(false);
+                            gPIOControl.SetYellow(true);
+                            gPIOControl.SetGreen(false);
+                        }
+                        else
+                        {
+                            gPIOControl.SetRed(true);
+                            gPIOControl.SetYellow(false);
+                            gPIOControl.SetGreen(false);
+                        }
                     }
+                    k = 0;
+                    Debug.WriteLine(lows + " " + mids + " " + hights);
+                }
+                else
+                {
+                    k++;
                 }
 
 
