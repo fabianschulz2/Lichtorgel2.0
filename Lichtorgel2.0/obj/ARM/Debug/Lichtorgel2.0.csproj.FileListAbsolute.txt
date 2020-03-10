@@ -8,14 +8,7 @@ C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\De
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Core\AppxManifest.xml
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Core\Lichtorgel2.0.exe
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Lichtorgel2.0.build.appxrecipe
-C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\NAudio.dll
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\System.Runtime.dll
-C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\System.Text.Encoding.CodePages.dll
-C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Unosquare.Raspberry.Abstractions.dll
-C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Unosquare.RaspberryIO.dll
-C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Swan.dll
-C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Swan.Lite.dll
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Microsoft.UI.Xaml.Markup.winmd
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\Lichtorgel2.0.csprojAssemblyReference.cache
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\App.g.i.cs
@@ -32,7 +25,6 @@ C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\De
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\Lichtorgel2.0.exe
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\Lichtorgel2.0.pdb
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\ResourceHandlingTask.state
-C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\FxResources.System.Text.Encoding.CodePages.SR.resw
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\priconfig.xml
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\priconfig.xml.intermediate
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\unfiltered.layout.resfiles
@@ -48,12 +40,8 @@ C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\De
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\qualifiers.txt
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\qualifiers.txt.intermediate
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\MultipleQualifiersPerDimensionFound.txt
-C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\resources.en-us.resfiles
-C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\resources.en-us.resfiles.intermediate
-C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\NAudio.pri.xml
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\ProjectArchitectures.txt
 C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636758516200000000.json
-C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Unosquare.WiringPi.dll
 C:\Users\valsj\Source\Repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\App.xbf
 C:\Users\valsj\Source\Repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\MainPage.xbf
 C:\Users\valsj\Source\Repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Lichtorgel2.0.xr.xml
@@ -212,3 +200,10 @@ C:\Users\valsj\Desktop\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\resources.en.re
 C:\Users\valsj\Desktop\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\resources.en.resfiles.intermediate
 C:\Users\valsj\Desktop\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\ProjectArchitectures.txt
 C:\Users\valsj\Desktop\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636758516200000000.json
+C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Accord.dll.config
+C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Accord.dll
+C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Accord.Math.Core.dll
+C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Accord.Math.dll
+C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\Accord\en\Accord.Properties.Resources.resw
+C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\resources.en.resfiles
+C:\Users\fabia\source\repos\fabianschulz2\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\resources.en.resfiles.intermediate

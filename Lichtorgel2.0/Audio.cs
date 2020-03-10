@@ -30,7 +30,6 @@ namespace Lichtorgel2._0
         AudioFrameOutputNode audioFrameOutputNode;
         GPIOControl gPIOControl;
         String lastFileName;
-        FFT fft;
         int k = 20;
 
         public async void Start()
@@ -44,7 +43,6 @@ namespace Lichtorgel2._0
             CreateAudioFrameOutputNode();
             ConnectNodes();
             CreateGPIOControll();
-            fft = new FFT();
             audioGraph.Start();
         }
 
@@ -156,12 +154,11 @@ namespace Lichtorgel2._0
                 byte* dataInBytes;
                 uint capacityInBytes;
                 float* dataInFloat;
-               // double[] dataInDouble = new Double[(int)audioGraph.EncodingProperties.SampleRate];
                 // Get the buffer from the AudioFrame
                 ((IMemoryBufferByteAccess)reference).GetBuffer(out dataInBytes, out capacityInBytes);
 
                 dataInFloat = (float*)dataInBytes;
-                Debug.WriteLine(buffer.Length);
+                //Debug.WriteLine(buffer.Length);
                 float lows = 0;
                 float mids = 0;
                 float hights = 0;
@@ -173,22 +170,22 @@ namespace Lichtorgel2._0
                     for (uint i = 0; i < arrSize / 3; i += 20)
                     {
                         lows += dataInFloat[i] + 1f;
-                        Debug.Write(dataInFloat[i] + " ");
+                        //Debug.Write(dataInFloat[i] + " ");
                     }
-                    Debug.WriteLine("");
+                    //Debug.WriteLine("");
                     for (uint i = arrSize / 3; i < (arrSize * 2) / 3; i += 20)
                     {
                         mids += dataInFloat[i] + 1f;
-                        Debug.Write(dataInFloat[i] + " ");
+                        //Debug.Write(dataInFloat[i] + " ");
                     }
-                    Debug.WriteLine("");
+                    //Debug.WriteLine("");
                     for (uint i = (arrSize * 2) / 3; i < arrSize; i += 20)
                     {
                         hights += dataInFloat[i] + 1f;
-                        Debug.Write(dataInFloat[i] + " ");
+                        //Debug.Write(dataInFloat[i] + " ");
                     }
-                    Debug.WriteLine("");
-                    Debug.WriteLine("");
+                    //Debug.WriteLine("");
+                    //Debug.WriteLine("");
                     //for (int j = 0; j < arrSize; j++)
                     //{
                     //    Debug.Write(dataInFloat[j] + " ");
@@ -210,11 +207,19 @@ namespace Lichtorgel2._0
                             gPIOControl.SetGreen(false);
                         }
                         else
-                        {
-                            gPIOControl.SetRed(true);
-                            gPIOControl.SetYellow(false);
-                            gPIOControl.SetGreen(false);
-                        }
+                        { if(mids==hights &&lows == mids){
+                                gPIOControl.SetRed(true);
+                                gPIOControl.SetYellow(true);
+                                gPIOControl.SetGreen(true);
+                            }else
+                            {
+
+
+                                gPIOControl.SetRed(true);
+                                gPIOControl.SetYellow(false);
+                                gPIOControl.SetGreen(false);
+                            }
+                            }
                     }
                     k = 0;
                     Debug.WriteLine(lows + " " + mids + " " + hights);
@@ -223,38 +228,10 @@ namespace Lichtorgel2._0
                 {
                     k++;
                 }
-
-
-
-                //dataInDouble[count] = (double)*dataInFloat;
-
-                //count++;
-                //if (count < (int)audioGraph.EncodingProperties.SampleRate)
-                //{
-                //    SetLight(dataInDouble);
-                //    count = 0;
-                //}
-                //gPIOControll.SetGreen(dataInFloat[1] < 0.0);
             }
         }
 
-        public void SetLight(double[] fft)
-        {
-
-            //double avg = 0;
-            Debug.WriteLine(fft.Length);
-            //for (int i = 0; i < fft.Length; i++)
-            //{
-            //    Debug.Write(fft[i] + " ");
-            //    avg += fft[i];
-            //}
-            //Debug.WriteLine("");
-            //avg /= fft.Length;
-            //gPIOControl.SetGreen(avg < 200);
-            //gPIOControl.SetYellow(avg > 200 && avg < 5000);
-            //gPIOControl.SetRed(avg > 5000);
-        }
-
+        
         public void CreateAudioFrameOutputNode()
         {
             //int sampleRate = (int)audioGraph.EncodingProperties.SampleRate;

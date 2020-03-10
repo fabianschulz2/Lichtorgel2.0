@@ -123,7 +123,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Audio.cs" />
-    <Compile Include="FFT.cs" />
     <Compile Include="GPIOControl.cs" />
     <Compile Include="GPIOControlVirtual.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -137,6 +136,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\100.mp3" />
+    <Content Include="Assets\freqtest.mp3" />
+    <Content Include="Assets\StreetFighter.mp3" />
     <Content Include="Assets\test.mp3" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

@@ -8450,24 +8450,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\valsj\\.nuget\\packages\\": {},
+    "C:\\Users\\fabia\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\valsj\\Desktop\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj",
+      "projectUniqueName": "C:\\Users\\fabia\\source\\repos\\fabianschulz2\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj",
       "projectName": "Lichtorgel2.0",
-      "projectPath": "C:\\Users\\valsj\\Desktop\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj",
-      "packagesPath": "C:\\Users\\valsj\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\valsj\\Desktop\\Lichtorgel2.0\\Lichtorgel2.0\\obj\\",
+      "projectPath": "C:\\Users\\fabia\\source\\repos\\fabianschulz2\\Lichtorgel2.0\\Lichtorgel2.0\\Lichtorgel2.0.csproj",
+      "packagesPath": "C:\\Users\\fabia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\fabia\\source\\repos\\fabianschulz2\\Lichtorgel2.0\\Lichtorgel2.0\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\valsj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\fabia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

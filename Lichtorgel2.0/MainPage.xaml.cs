@@ -31,6 +31,9 @@ namespace Lichtorgel2._0
             //Liste fuer Combobox erstellen
             Mp3List.Add("test.mp3");
             Mp3List.Add("test.wav");
+            Mp3List.Add("freqtest.mp3");
+            Mp3List.Add("100.mp3");
+            Mp3List.Add("StreetFighter.mp3");
             audio = new Audio();
             audio.Start();
 
