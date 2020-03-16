@@ -145,7 +145,6 @@ C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Accord
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Accord.dll
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Accord.Math.Core.dll
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\bin\ARM\Debug\Accord.Math.dll
-C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\Accord\en\Accord.Properties.Resources.resw
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\resources.en.resfiles
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\resources.en.resfiles.intermediate
 C:\Users\valsj\Documents\GitHub\Lichtorgel2.0\Lichtorgel2.0\obj\ARM\Debug\Lichtorgel2.0.csprojAssemblyReference.cache

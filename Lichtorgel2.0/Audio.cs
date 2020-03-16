@@ -158,127 +158,112 @@ namespace Lichtorgel2._0
                 ((IMemoryBufferByteAccess)reference).GetBuffer(out dataInBytes, out capacityInBytes);
 
                 dataInFloat = (float*)dataInBytes;
-                //Debug.WriteLine(buffer.Length);
                 float lows = 0;
                 float mids = 0;
                 float hights = 0;
-                if (k ==20)
+                if (k == 20)
                 {
-                    
+                    //Bei jedem 20sten Frame wird geschaut, in welchem Hoehenabschnitt der hochste Wert ist
+                    //Um in das Pointerarray zu greifen, müssen wir sicherstellen, dass wir nicht in einen unerlaubten Bereich greifen.
+                    //arrSize = buffer.Length / 4 bedeutet das wir ausrechnen wie gross der zugreifbare Bereich ist. 4 ist in dem Falle sizeOf(Float).
+                    //Dann summieren wir zuerst das untere Drittel fuer die lows auf, dann das mittlere Drittel fuer die mids und das letzte Drittel fuer die hights.
 
-                    uint arrSize = buffer.Length/4;
+                    uint arrSize = buffer.Length / 4;
                     for (uint i = 0; i < arrSize / 3; i += 20)
                     {
                         lows += dataInFloat[i] + 1f;
-                        //Debug.Write(dataInFloat[i] + " ");
                     }
-                    //Debug.WriteLine("");
                     for (uint i = arrSize / 3; i < (arrSize * 2) / 3; i += 20)
                     {
                         mids += dataInFloat[i] + 1f;
-                        //Debug.Write(dataInFloat[i] + " ");
                     }
-                    //Debug.WriteLine("");
                     for (uint i = (arrSize * 2) / 3; i < arrSize; i += 20)
                     {
                         hights += dataInFloat[i] + 1f;
-                        //Debug.Write(dataInFloat[i] + " ");
                     }
-                    //Debug.WriteLine("");
-                    //Debug.WriteLine("");
-                    //for (int j = 0; j < arrSize; j++)
-                    //{
-                    //    Debug.Write(dataInFloat[j] + " ");
-                    //}
-                    //Debug.WriteLine("");
-                    if (lows > mids && lows > hights)
+
+
+                    if (mids == hights && lows == mids)
+                    {
+                        gPIOControl.SetRed(true);
+                        gPIOControl.SetYellow(true);
+                        gPIOControl.SetGreen(true);
+                    }
+                    else if (lows > mids && lows > hights)
                     {
                         gPIOControl.SetRed(false);
                         gPIOControl.SetYellow(false);
                         gPIOControl.SetGreen(true);
 
                     }
+                    else if (mids > hights)
+                    {
+                        gPIOControl.SetRed(false);
+                        gPIOControl.SetYellow(true);
+                        gPIOControl.SetGreen(false);
+                    }
                     else
                     {
-                        if (mids > hights)
-                        {
-                            gPIOControl.SetRed(false);
-                            gPIOControl.SetYellow(true);
-                            gPIOControl.SetGreen(false);
-                        }
-                        else
-                        { if(mids==hights &&lows == mids){
-                                gPIOControl.SetRed(true);
-                                gPIOControl.SetYellow(true);
-                                gPIOControl.SetGreen(true);
-                            }else
-                            {
-
-
-                                gPIOControl.SetRed(true);
-                                gPIOControl.SetYellow(false);
-                                gPIOControl.SetGreen(false);
-                            }
-                            }
+                        gPIOControl.SetRed(true);
+                        gPIOControl.SetYellow(false);
+                        gPIOControl.SetGreen(false);
                     }
-                    k = 0;
-                    Debug.WriteLine(lows + " " + mids + " " + hights);
-                }
-                else
-                {
-                    k++;
-                }
+                
+                k = 0;
             }
-        }
-
-        
-        public void CreateAudioFrameOutputNode()
-        {
-            //int sampleRate = (int)audioGraph.EncodingProperties.SampleRate;
-            audioFrameOutputNode = audioGraph.CreateFrameOutputNode();
-            audioGraph.QuantumStarted += AudioGraph_QuantumStarted;
-        }
-
-        private void AudioGraph_QuantumStarted(AudioGraph sender, object args)
-        {
-            AudioFrame frame = audioFrameOutputNode.GetFrame();
-            ProcessFrameOutput(frame);
-        }
-        public void MicState(bool micOn)
-        {
-            //unmute
-            if (micOn)
-            {
-                audioDeviceInputNode.ConsumeInput = true;
-            }
-            //Mikrofon mute
             else
             {
-                audioDeviceInputNode.ConsumeInput = false;
-            }
-        }
-
-        public async void FileState(bool filePlay, String fileName)
-        {
-            //wiedergabe fortsetzen, wenn sich der Dateiname aendert, wird ein neuer FileInputNode erstellt.
-            if (filePlay)
-            {
-                if (!fileName.Equals(lastFileName))
-                {
-                    audioFileInputNode.RemoveOutgoingConnection(audioDeviceOutputNode);
-                    audioFileInputNode.RemoveOutgoingConnection(audioFrameOutputNode);
-                    await CreateAudioFileInputNode(fileName);
-                    audioFileInputNode.AddOutgoingConnection(audioDeviceOutputNode);
-                    audioFileInputNode.AddOutgoingConnection(audioFrameOutputNode);
-                    lastFileName = fileName;
-                }
-                audioFileInputNode.ConsumeInput = true;
-            }
-            //wiedergabe pausieren
-            else
-            {
-                audioFileInputNode.ConsumeInput = false;
+                k++;
             }
         }
     }
+
+    public void CreateAudioFrameOutputNode()
+    {
+        audioFrameOutputNode = audioGraph.CreateFrameOutputNode();
+        audioGraph.QuantumStarted += AudioGraph_QuantumStarted;
+    }
+
+    private void AudioGraph_QuantumStarted(AudioGraph sender, object args)
+    {
+        AudioFrame frame = audioFrameOutputNode.GetFrame();
+        ProcessFrameOutput(frame);
+    }
+    public void MicState(bool micOn)
+    {
+        //unmute
+        if (micOn)
+        {
+            audioDeviceInputNode.ConsumeInput = true;
+        }
+        //Mikrofon mute
+        else
+        {
+            audioDeviceInputNode.ConsumeInput = false;
+        }
+    }
+
+    public async void FileState(bool filePlay, String fileName)
+    {
+        //wiedergabe fortsetzen, wenn sich der Dateiname aendert, wird ein neuer FileInputNode erstellt.
+        if (filePlay)
+        {
+            if (!fileName.Equals(lastFileName))
+            {
+                audioFileInputNode.RemoveOutgoingConnection(audioDeviceOutputNode);
+                audioFileInputNode.RemoveOutgoingConnection(audioFrameOutputNode);
+                await CreateAudioFileInputNode(fileName);
+                audioFileInputNode.AddOutgoingConnection(audioDeviceOutputNode);
+                audioFileInputNode.AddOutgoingConnection(audioFrameOutputNode);
+                lastFileName = fileName;
+            }
+            audioFileInputNode.ConsumeInput = true;
+        }
+        //wiedergabe pausieren
+        else
+        {
+            audioFileInputNode.ConsumeInput = false;
+        }
+    }
+}
 }
